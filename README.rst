@@ -9,7 +9,7 @@
 Exploring non-coding RNA functions with deep learning tools
 ===========================================================
 
-Scripts and datasets to reproduce the experiment reported in the paper
+Scripts and datasets to reproduce the experiments reported in the paper
 
 Datasets
 ========
@@ -70,7 +70,7 @@ Tables and Figures generation
 -----------------------------
 
 References
-----------
+~~~~~~~~~~
 
 .. container:: references hanging-indent
    :name: refs
