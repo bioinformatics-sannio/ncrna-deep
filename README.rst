@@ -53,12 +53,21 @@ libraries is necessary:
 Datasets preparation
 --------------------
 
-`datasets.ipynb <datasets.ipynb>`__ Python notebook generates all the
-data, in numpy format, necessary to run the experiments for both *Rfam
-novel* and *RNAGCN/nRC* datasets. The notebook is self explained and is
-able to create the necessary train, validation, and test sets for each
-combination of boundary noise (0,25,50,75,100), padding (new, random,
-constant), and encoder (K-mer, Snake, Morton, and Hilbert).
+The Python notebook `datasets.ipynb <datasets.ipynb>`__ generates all
+the data, in numpy format, necessary to run the experiments for both
+*Rfam novel* and *RNAGCN/nRC* datasets. The notebook is self explained
+and is able to create the necessary train, validation, and test sets for
+each combination of boundary noise (0, 25, 50, 75, 100), padding (new,
+random, constant), and encoder (K-mer, Snake, Morton, Hilbert).
+
+*Rfam novel* experiments
+------------------------
+
+*RNAGCN/nRC* experiments
+------------------------
+
+Tables and Figures generation
+-----------------------------
 
 References
 ----------
