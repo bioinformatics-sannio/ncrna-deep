@@ -17,15 +17,35 @@ Datasets
 Two datasets has been adopted in the experiments: a novel generated
 dataset of sequences downloaded from Rfam database and the dataset made
 public available by (Fiannaca et al. 2017). Raw data are available in
-`datasets <datasets/>`__
+`datasets <datasets/>`__. The novel Rfam dataset need to be prepared
+first with an R script available in
+`dataset-preparation.R <datasets/Rfam-novel/dataset-preparation.R>`__.
+The script must be executed in the same directory as:
 
 .. code:: console
 
    Rscript dataset-preparation.R
 
-this will generate three fasta files ``x_train.fasta``, ``x_val.fasta``,
-and ``x_test.fasta`` and the distribution graph among Rfam classes
-``class-distribution.pdf``.
+The script generate three fasta files, ``x_train.fasta``,
+``x_val.fasta``, and ``x_test.fasta`` and the distribution graph of
+sequences among Rfam classes ``class-distribution.pdf`` shown in the
+paper.
+
+Experiments
+===========
+
+Prerequisites
+-------------
+
+To run the experiments a working python environment with the following
+library installed:
+
+-  tensorflow
+-  sklearn
+-  numpy
+-  pickle
+-  matplotlib
+-  pandas
 
 References
 ----------
