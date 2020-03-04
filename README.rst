@@ -16,7 +16,8 @@ Datasets
 
 Two datasets has been adopted in the experiments: a novel generated
 dataset of sequences downloaded from Rfam database and the dataset made
-public available by (Fiannaca et al. 2017).
+public available by (Fiannaca et al. 2017). Raw data are available in
+`datasets <datasets/>`__
 
 .. code:: console
 
