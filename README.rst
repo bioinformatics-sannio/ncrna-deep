@@ -60,11 +60,16 @@ and is able to create the necessary train, validation, and test sets for
 each combination of boundary noise (0, 25, 50, 75, 100), padding (new,
 random, constant), and encoder (K-mer, Snake, Morton, Hilbert).
 
-*Rfam novel* experiments
-------------------------
+Running experiments
+-------------------
 
-*RNAGCN/nRC* experiments
-------------------------
+The Python notebooks
+`experiment-Rfam-novel.ipynb <experiment-Rfam-novel.ipynb>`__ and
+`experiment-dataset-nRC.ipynb <experiment-dataset-nRC.ipynb>`__ provide
+all the necessary to execute the experiments described in the paper
+respectively on *Rfam novel* and *RNAGCN/nRC* datasets. All results are
+organized into a Python dictionary and then stored in a file through
+pickle library.
 
 Tables and Figures generation
 -----------------------------
