@@ -26,10 +26,11 @@ The script must be executed in the same directory as:
 
    Rscript dataset-preparation.R
 
-The script generate three fasta files, ``x_train.fasta``,
-``x_val.fasta``, and ``x_test.fasta`` and the distribution graph of
-sequences among Rfam classes ``class-distribution.pdf`` shown in the
-paper.
+To run this script a working R environment with *Biostrings* and
+*ggplot2* packages is necessary. The script generates in the same
+directory three fasta files, ``x_train.fasta``, ``x_val.fasta``, and
+``x_test.fasta`` and the distribution graph of sequences among Rfam
+classes ``class-distribution.pdf`` shown in the paper.
 
 Experiments
 ===========
@@ -37,8 +38,8 @@ Experiments
 Prerequisites
 -------------
 
-To run the experiments a working python environment with the following
-library installed:
+To run the experiments a working Python environment with the following
+libraries is necessary:
 
 -  tensorflow
 -  sklearn
@@ -46,6 +47,15 @@ library installed:
 -  pickle
 -  matplotlib
 -  pandas
+
+Datasets preparation
+--------------------
+
+With the `datasets.ipynb <datasets.ipynb>`__ Python notebook is possible
+to create all the data necessary to run the experiments. The notebook is
+selfexplained and generates for each combination of, boundary noise,
+padding, and encoder, the corresponding train, val, and test sets saved
+in numpy format in the same directory.
 
 References
 ----------
