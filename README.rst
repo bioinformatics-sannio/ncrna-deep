@@ -87,8 +87,8 @@ Results
 
 All experiment results are organized into a Python dictionary and then
 stored into a file through pickle library in `results <results/>`__.
-Already generated results, shown in the paper, are provided in this
-directory for convenience.
+Results shown in the paper are provided in this directory for
+convenience.
 
 Tables and Figures generation
 -----------------------------
