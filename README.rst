@@ -59,8 +59,8 @@ Included functions:
 -  `seqEncoders.py <seqEncoders.py>`__, a collection of function to
    ancode sequences into k-mers and spatial-curves representations.
 
-Sequences datasets preparation
-------------------------------
+Sequences preparation
+---------------------
 
 The Python notebook `datasets.ipynb <datasets.ipynb>`__ generates all
 the data, in numpy format, necessary to run the experiments for both
@@ -69,22 +69,18 @@ and is able to create the necessary train, validation, and test sets for
 each combination of boundary noise (0, 25, 50, 75, 100), padding (new,
 random, constant), and encoder (K-mer, Snake, Morton, Hilbert).
 
-Running experiments with the standard architecture on *Rfam-novel* and *RNAGCN/nRC* datasets
---------------------------------------------------------------------------------------------
+Running the experiments
+-----------------------
 
 The Python notebooks
 `experiment-Rfam-novel.ipynb <experiment-Rfam-novel.ipynb>`__ and
 `experiment-dataset-nRC.ipynb <experiment-dataset-nRC.ipynb>`__ provide
 all the necessary to execute the experiments described in the paper
-respectively on *Rfam novel* and *RNAGCN/nRC* datasets.
-
-Running experiments with the improved architecture on *RNAGCN/nRC* dataset
---------------------------------------------------------------------------
-
-The Python notebook
+respectively on *Rfam novel* and *RNAGCN/nRC* datasets. While, the
+Python notebook
 `experiment-dataset-nRC-ImprovedModel.ipynb <experiment-dataset-nRC-ImprovedModel.ipynb>`__
 provides the necessary to run the experiments with the improved
-architecture described in the paper on *RNAGCN/nRC* dataset.
+architecture on *RNAGCN/nRC* dataset.
 
 Results
 -------
