@@ -1,4 +1,4 @@
-from seqEncoders import *
+from utils.seqEncoders import *
 
 # original dataset files
 # generated with datasets/Rfam-novel/dataset-preparation.R

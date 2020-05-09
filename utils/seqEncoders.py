@@ -207,7 +207,7 @@ def write_seqs(fasta_file,seqs,ids):
         seqrecords.append(sr)
     SeqIO.write(seqrecords, fasta_file, 'fasta')
 
-def get_seqs_with_bnoise(fasta_file,nperc=0):
+def get_seqs_with_bnoise(fasta_file,nperc=0,dinucleotide='preserve'):
     basi = ['A','T','G','C']
     seq_rec = list(SeqIO.parse(fasta_file, "fasta"))
     samples=[]
@@ -215,8 +215,13 @@ def get_seqs_with_bnoise(fasta_file,nperc=0):
         stop=''
         sbottom=''
         if (nperc>0):
-            stop=np.random.choice(basi, int(0.5*len(r.seq)*nperc/100), p=[0.25, 0.25, 0.25, 0.25])
-            sbottom=np.random.choice(basi, int(0.5*len(r.seq)*nperc/100), p=[0.25, 0.25, 0.25, 0.25])
+            if dinucleotide=='preserve':
+                sw = wrap(str(r.seq),2)
+                stop=np.random.choice(sw, int(0.25*len(r.seq)*nperc/100))
+                sbottom=np.random.choice(sw, int(0.25*len(r.seq)*nperc/100))            
+            else:
+                stop=np.random.choice(basi, int(0.5*len(r.seq)*nperc/100), p=[0.25, 0.25, 0.25, 0.25])
+                sbottom=np.random.choice(basi, int(0.5*len(r.seq)*nperc/100), p=[0.25, 0.25, 0.25, 0.25])
             stop=''.join(stop)
             sbottom=''.join(sbottom)
         samples.append(stop+r.seq+sbottom)
