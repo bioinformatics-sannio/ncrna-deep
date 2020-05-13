@@ -7,9 +7,9 @@ fastaTrain = 'datasets/Rfam-novel/x_train.fasta'
 fastaVal = 'datasets/Rfam-novel/x_val.fasta'
 fastaTest = 'datasets/Rfam-novel/x_test.fasta'
 
-kappas=[1,2,6]  # genome simulation multipliers (not used)
 nlayers=[0,1,2,3]  # deep architecture layers
 bnoise=[0,25,50,75,100,125,150,175,200] # boundary noise simulation
+t=[1,2,5,10] # number of random (non functional) seqs for each test seq
 padds = ['random','constant','new'] # how padding is done
 
 # Encoders configurations 

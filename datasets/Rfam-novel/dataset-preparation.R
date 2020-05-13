@@ -8,7 +8,7 @@ cat("Val: ",length(x_val),"\n")
 cat("Test: ",length(x_test),"\n")
 cat("total:",length(x_train)+length(x_val)+length(x_test))
 
-cat("Keep only commonclasses amon sets")
+cat("Keep only commonclasses among sets")
 
 commonclasses = unique(intersect(names(x_test),names(x_train)))
 commonclasses = unique(intersect(names(x_val),commonclasses))
@@ -158,6 +158,15 @@ df = data.frame(Class=names(tcls),Samples=as.numeric(tcls))
 ggplot(data=df, aes(x=Class, y=Samples)) + xlab("") + ylab("# of samples")+
   geom_bar(stat="identity", width=0.5)+theme(axis.text.x = element_text(angle = 90, hjust = 1),text = element_text(size=16))
 ggsave("class-distribution.pdf",height = 6 , width = 10)
+
+df = data.frame(Class=c(names(x_train),names(x_val),names(x_test)),
+                Len=c(width(x_train),width(x_val),width(x_test)))
+
+ggplot(data=df, aes(x=Class, y=Len)) + xlab("") + ylab("Seq len")+
+  geom_boxplot(outlier.colour="red", outlier.shape=8,
+               outlier.size=1,notch=TRUE)+ theme(axis.text.x = element_text(angle = 90, hjust = 1),text = element_text(size=16))
+ggsave("class-len-distribution.pdf",height = 6 , width = 10)
+
 
 cat("Balancing of training/validation sets\n")
 minsize = min(table(names(x_train)))

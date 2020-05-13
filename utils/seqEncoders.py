@@ -207,6 +207,17 @@ def write_seqs(fasta_file,seqs,ids):
         seqrecords.append(sr)
     SeqIO.write(seqrecords, fasta_file, 'fasta')
 
+def get_nonfunctional_seqs(fasta_file,t=1):
+    seq_rec = list(SeqIO.parse(fasta_file, "fasta"))
+    samples=[]
+    for nt in range(t):
+        for i,r in enumerate(seq_rec):
+            sw = wrap(str(r.seq),2)
+            np.random.shuffle(sw)
+            samples.append(Seq(''.join(sw)))
+    return samples
+
+    
 def get_seqs_with_bnoise(fasta_file,nperc=0,dinucleotide='preserve'):
     basi = ['A','T','G','C']
     seq_rec = list(SeqIO.parse(fasta_file, "fasta"))

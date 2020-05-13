@@ -1,4 +1,4 @@
-"""Provides utilities fro depp model construction."""
+"""Provides utilities fro deep model construction."""
 import tensorflow as tf
 from tensorflow import keras
 
