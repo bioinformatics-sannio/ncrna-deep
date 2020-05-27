@@ -9,7 +9,9 @@
 Exploring non-coding RNA functions with deep learning tools
 ===========================================================
 
-Scripts and datasets to reproduce the experiments reported in the paper
+Scripts and datasets to reproduce the experiments reported in the paper:
+“Deep learning predicts non-coding RNA functions from only raw sequence
+data”
 
 Datasets
 ========
