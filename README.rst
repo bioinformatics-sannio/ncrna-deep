@@ -1,6 +1,6 @@
 .. raw:: html
 
-   <!--- to be converter in rst first in order to add references at the end of this document --->
+   <!--- to be converted in rst first in order to add references at the end of this document --->
 
 .. raw:: html
 
@@ -41,15 +41,14 @@ Experiments
 Prerequisites
 -------------
 
-To run the experiments a working Python environment with the following
+To run the experiments a working Python 3 environment with the following
 libraries is necessary:
 
--  tensorflow
--  sklearn
--  numpy
--  pickle
--  matplotlib
--  pandas
+-  tensorflow (1.13.1)
+-  sklearn (0.21.3)
+-  numpy (1.16.2)
+-  matplotlib (3.1.1)
+-  pandas (0.25.0)
 
 Included functions:
 
@@ -74,10 +73,11 @@ Running the experiments
 -----------------------
 
 The Python notebooks
-`experiment-Rfam-novel.ipynb <experiment-Rfam-novel.ipynb>`__ and
-`experiment-dataset-nRC.ipynb <experiment-dataset-nRC.ipynb>`__ provide
-all the necessary to execute the experiments described in the paper
-respectively on *Rfam novel* and *RNAGCN/nRC* datasets. While, the
+`experiment-Rfam-novel.ipynb <experiment-Rfam-novel.ipynb>`__,
+`experiment-dataset-nRC.ipynb <experiment-dataset-nRC.ipynb>`__, and
+`experiment-dropout-rejection.ipynb <experiment-dropout-rejection.ipynb>`__
+provide all the necessary to execute the experiments described in the
+paper respectively on *Rfam novel* and *RNAGCN/nRC* datasets. While, the
 Python notebook
 `experiment-dataset-nRC-ImprovedModel.ipynb <experiment-dataset-nRC-ImprovedModel.ipynb>`__
 provides the necessary to run the experiments with the improved
