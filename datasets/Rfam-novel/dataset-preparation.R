@@ -1,7 +1,8 @@
 require(Biostrings)
 
 # downloaded 199110 sequences from Rfam database splitted in train, val and test sets
-load("train_test_val_41_Rfam_families.RDa",verbose = T)
+#load("train_test_val_41_Rfam_families.RDa",verbose = T)
+load("train_test_val_sets_177_families.RDa",verbose = T)
 
 cat("Train: ",length(x_train),"\n")
 cat("Val: ",length(x_val),"\n")
@@ -114,9 +115,9 @@ cat("removed %:",1-(length(x_train)+length(x_val)+length(x_test))/initialtot)
 cat("total classes:",length(unique(c(names(x_train),names(x_val),names(x_test)))))
 
 
-cat("Remove long seq > 150 due to computational limit\n")
+cat("Remove long seq > 200 to exclude long non coding RNA\n")
 minlen = 0
-maxlen = 150
+maxlen = 200
 x_train=x_train[width(x_train)<=maxlen & width(x_train)>=minlen]
 x_val=x_val[width(x_val)<=maxlen & width(x_val)>=minlen]
 x_test=x_test[width(x_test)<=maxlen & width(x_test)>=minlen]
@@ -157,7 +158,7 @@ tcls=table(c(names(x_train),names(x_val),names(x_test)))
 df = data.frame(Class=names(tcls),Samples=as.numeric(tcls))
 ggplot(data=df, aes(x=Class, y=Samples)) + xlab("") + ylab("# of samples")+
   geom_bar(stat="identity", width=0.5)+theme(axis.text.x = element_text(angle = 90, hjust = 1),text = element_text(size=16))
-ggsave("class-distribution.pdf",height = 6 , width = 10)
+ggsave("class-distribution.pdf",height = 6 , width = 15)
 
 df = data.frame(Class=c(names(x_train),names(x_val),names(x_test)),
                 Len=c(width(x_train),width(x_val),width(x_test)))
@@ -165,7 +166,7 @@ df = data.frame(Class=c(names(x_train),names(x_val),names(x_test)),
 ggplot(data=df, aes(x=Class, y=Len)) + xlab("") + ylab("Seq len")+
   geom_boxplot(outlier.colour="red", outlier.shape=8,
                outlier.size=1,notch=TRUE)+ theme(axis.text.x = element_text(angle = 90, hjust = 1),text = element_text(size=16))
-ggsave("class-len-distribution.pdf",height = 6 , width = 10)
+ggsave("class-len-distribution.pdf",height = 6 , width = 15)
 
 
 cat("Balancing of training/validation sets\n")
