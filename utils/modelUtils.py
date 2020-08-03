@@ -40,6 +40,14 @@ def buildCNNModel(inshape,num_classes,nlayers=2,cnndim=2):
     return model
 
 
+def buildRNNModel(vocabulary,num_classes):
+    model = keras.Sequential()
+    model.add(keras.layers.Embedding(input_dim=vocabulary,output_dim=10))
+    model.add(keras.layers.LSTM(10))
+    model.add(keras.layers.Dropout(rate=0.25))
+    model.add(keras.layers.Dense(100, activation=LR))
+    model.add(keras.layers.Dense(num_classes, activation=tf.nn.softmax))
+    return model
 
 
 def buildCNNModelImproved1D(inshape,num_classes):
