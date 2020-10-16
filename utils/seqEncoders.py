@@ -3,7 +3,7 @@
 from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
-from Bio.Alphabet import IUPAC
+#from Bio.Alphabet import IUPAC
 from hilbertcurve.hilbertcurve import HilbertCurve
 import pymorton
 import numpy as np
@@ -11,6 +11,7 @@ import math
 import itertools
 from textwrap import wrap
 
+IUPACletters = 'GATCRYWSMKHBVDN'
 
 def checkRNAbind(l1,l2):
     if l1=='A' and l2=='T' or l1=='T' and l2=='A':
@@ -19,7 +20,7 @@ def checkRNAbind(l1,l2):
         return '2'
     return '0'
 
-def seq2ContactMatrixLinear(seq: Seq, sdim=[[200],IUPAC.IUPACAmbiguousDNA.letters]):
+def seq2ContactMatrixLinear(seq: Seq, sdim=[[200],IUPACletters]):
     alphabet = [''.join(x) for x in itertools.product(sdim[1], repeat=2)]    
     char_to_int = dict((c, i) for i, c in enumerate(alphabet))
     seqr=np.random.randint(len(sdim[1])**2, size=sdim[0][0])
@@ -72,7 +73,7 @@ def seq2ContactMatrix(seq: Seq, sdim=[[16,16],['0','1','2']]):
     return seqr
 
 
-def seq2ContactMatrixMix(seq: Seq, sdim=[[16,16],IUPAC.IUPACAmbiguousDNA.letters]):
+def seq2ContactMatrixMix(seq: Seq, sdim=[[16,16],IUPACletters]):
     alphabet = [''.join(x) for x in itertools.product(sdim[1], repeat=2)]
     alphabet = alphabet + sdim[1]
     char_to_int = dict((c, i) for i, c in enumerate(alphabet))
@@ -86,7 +87,7 @@ def seq2ContactMatrixMix(seq: Seq, sdim=[[16,16],IUPAC.IUPACAmbiguousDNA.letters
     return seqr
 
 
-def seq2Rnd2D(seq: Seq, sdim=[[16,16],IUPAC.IUPACAmbiguousDNA.letters]):
+def seq2Rnd2D(seq: Seq, sdim=[[16,16],IUPACletters]):
     char_to_int = dict((c, i) for i, c in enumerate(sdim[1]))
     #seqr=np.random.randint(len(sdim[1]), size=sdim[0])
     seqr=np.zeros(sdim[0])
@@ -105,7 +106,7 @@ def seq2Rnd2D(seq: Seq, sdim=[[16,16],IUPAC.IUPACAmbiguousDNA.letters]):
     return seqr
 
 
-def seq2Snake(seq: Seq, sdim=[[16,16],IUPAC.IUPACAmbiguousDNA.letters],padding='constant'):
+def seq2Snake(seq: Seq, sdim=[[16,16],IUPACletters],padding='constant'):
     # this is default constant padding
     char_to_int = dict((c, i) for i, c in enumerate(sdim[1]))
     seqr=np.zeros(sdim[0])
@@ -127,7 +128,7 @@ def seq2Snake(seq: Seq, sdim=[[16,16],IUPAC.IUPACAmbiguousDNA.letters],padding='
         k +=1
     return seqr
 
-def seq2Hilbert(seq: Seq, sdim=[[16,16],IUPAC.IUPACAmbiguousDNA.letters],padding='constant'):
+def seq2Hilbert(seq: Seq, sdim=[[16,16],IUPACletters],padding='constant'):
     # this is default constant padding
     char_to_int = dict((c, i) for i, c in enumerate(sdim[1]))
     seqr=np.zeros(sdim[0])
@@ -145,7 +146,7 @@ def seq2Hilbert(seq: Seq, sdim=[[16,16],IUPAC.IUPACAmbiguousDNA.letters],padding
         #ss[coords[0],coords[1]] = c
     return seqr
 
-def seq2Morton(seq: Seq, sdim=[[16,16],IUPAC.IUPACAmbiguousDNA.letters],padding='constant'):
+def seq2Morton(seq: Seq, sdim=[[16,16],IUPACletters],padding='constant'):
     # this is default constant padding
     char_to_int = dict((c, i) for i, c in enumerate(sdim[1]))
     seqr=np.zeros(sdim[0])
@@ -162,7 +163,7 @@ def seq2Morton(seq: Seq, sdim=[[16,16],IUPAC.IUPACAmbiguousDNA.letters],padding=
         #ss[coords[0],coords[1]] = c
     return seqr
 
-def seq2Xhot(seq: Seq, sdim=[[200],2,IUPAC.IUPACAmbiguousDNA.letters,2],padding='constant'):
+def seq2Xhot(seq: Seq, sdim=[[200],2,IUPACletters,2],padding='constant'):
     #seqr=np.random.randint(len(sdim[2]), size=sdim[0][0])
     seqr=np.zeros(sdim[0][0])
     data = [str(seq)[i:i+sdim[3]] for i in range(len(seq)-sdim[3]+1)]
@@ -175,7 +176,7 @@ def seq2Xhot(seq: Seq, sdim=[[200],2,IUPAC.IUPACAmbiguousDNA.letters,2],padding=
     return seqr
 
 
-def seq2Kmer(seq: Seq, sdim=[[200],2,IUPAC.IUPACAmbiguousDNA.letters],padding='constant'):
+def seq2Kmer(seq: Seq, sdim=[[200],2,IUPACletters],padding='constant'):
     alphabet = [''.join(x) for x in itertools.product(sdim[2], repeat=sdim[1])]    
     # this is default constant padding
     char_to_int = dict((c, i) for i, c in enumerate(alphabet))
