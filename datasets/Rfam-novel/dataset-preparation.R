@@ -1,5 +1,5 @@
 
-# downloaded 199110 sequences from Rfam database splitted in train, val and test sets
+# downloaded 371619 sequences from Rfam database splitted in train, val and test sets
 #load("train_test_val_41_Rfam_families.RDa",verbose = T)
 load("train_test_val_sets_177_families.RDa",verbose = T)
 
@@ -56,7 +56,7 @@ cat("total classes:",length(unique(c(names(x_train),names(x_val),names(x_test)))
 
 w = c(width(x_train),width(x_val),width(x_test))
 q = c(names(x_train),names(x_val),names(x_test))
-sdata = data.frame(length=w,family=q)
+sdata = data.frame(length=w,family=as.factor(q))
 
 plot(density(w))
 
